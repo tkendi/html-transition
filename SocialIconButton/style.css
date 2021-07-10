@@ -83,8 +83,8 @@ body {
 .wrapper .icon:hover span,
 .wrapper .icon:hover .tooltip {
     text-shadow: 0px -1px 0px rgba(0, 0, 0, 0.1);
-    /* background-color: #0f4c81;
-    color: #fff; */
+    background-color: #0f4c81;
+    color: #fff;
 }
 
 .wrapper .icon:hover,
@@ -94,8 +94,7 @@ body {
     color: #ffffff;
 }
 
-
-/* .wrapper .twitter:hover,
+.wrapper .twitter:hover,
 .wrapper .twitter:hover .tooltip,
 .wrapper .twitter:hover .tooltip::before {
     background-color: #46c1f6;
@@ -121,4 +120,4 @@ body {
 .wrapper .youtube:hover .tooltip::before {
     background-color: #de463b;
     color: #ffffff;
-} */
+}
