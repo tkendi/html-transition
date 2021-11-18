@@ -1,0 +1,28 @@
+.wrap {
+  width: 100%;
+  position: relative;
+}
+
+.container {
+  width: 100%;
+  position: absolute;
+  display: flex;
+}
+
+.container > div {
+  width: 200px;
+  height: 200px;
+  background-color: #4f1c8f;
+  margin-left: 15px;
+  transition: all 0.2s linear;
+}
+
+button {
+  position: fixed;
+  bottom: 50%;
+  background-color: #000;
+  color: #fff;
+  border: 0px;
+  border-radius: 10px;
+  cursor: pointer;
+}
