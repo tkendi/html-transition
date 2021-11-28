@@ -17,23 +17,23 @@
   border: 2px solid #3781aa;
   width: 300px;
   height: 300px;
+  transform-origin: 50% 45%;
+  border-radius: 43%;
+  animation: drift 6000ms infinite ease-in;
   -webkit-transform-origin: 50% 48%;
-  transform-origin: 50% 48%;
-  border-radius: 50%;
-  -webkit-animation: drift 3000ms infinite linear;
-  animation: drift 3000ms infinite linear;
-}
-
-.wave.-three {
-  -webkit-animation: drift 5000ms infinite linear;
-  animation: drift 5000ms infinite linear;
+  -webkit-animation: drift 6000ms infinite ease-in;
 }
 
 .wave.-two {
-  -webkit-animation: drift 7000ms infinite linear;
-  animation: drift 7000ms infinite linear;
   opacity: 0.1;
   border: 3px solid #4eabc1;
+  animation: drift 7000ms infinite ease-in;
+  -webkit-animation: drift 7000ms infinite ease-in;
+}
+
+.wave.-three {
+  animation: drift 8000ms infinite ease-in;
+  -webkit-animation: drift 8000ms infinite ease-in;
 }
 
 .box:after {
@@ -56,26 +56,26 @@
 
 @keyframes drift {
   from {
-    -webkit-transform: rotate(0deg) scale(0, 0);
     transform: rotate(0deg) scale(0, 0);
+    -webkit-transform: rotate(0deg) scale(0, 0);
     opacity: 1;
   }
   to {
-    -webkit-transform: rotate(360deg) scale(2, 2);
     transform: rotate(360deg) scale(2, 2);
+    -webkit-transform: rotate(360deg) scale(2, 2);
     opacity: 0;
   }
 }
 
 @-webkit-keyframes drift {
   from {
-    -webkit-transform: rotate(0deg) scale(0, 0);
     transform: rotate(0deg) scale(0, 0);
+    -webkit-transform: rotate(0deg) scale(0, 0);
     opacity: 1;
   }
   to {
-    -webkit-transform: rotate(360deg) scale(2, 2);
     transform: rotate(360deg) scale(2, 2);
+    -webkit-transform: rotate(360deg) scale(2, 2);
     opacity: 0;
   }
 }
