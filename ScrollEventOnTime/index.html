@@ -5,6 +5,7 @@
     <!-- 모바일 대응을 위한 뷰포트 기본 설정 -->
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <link rel="stylesheet" type="text/css" href="style.css" />
+    <script rel="script" type="text/scripts" src="index.js"></script>
   </head>
   <body>
     <header>
@@ -13,9 +14,9 @@
     <main>
       <section>
         <div class="sa sa-up">디비전 1</div>
-        <div class="sa sa-up">디비전 2</div>
-        <div class="sa sa-up">디비전 3</div>
-        <div class="sa sa-up">디비전 4</div>
+        <div class="sa sa-up" data-sa-delay="200">디비전 2</div>
+        <div class="sa sa-up" data-sa-delay="400">디비전 3</div>
+        <div class="sa sa-up" data-sa-delay="600">디비전 4</div>
       </section>
       <section>
         <div class="sa sa-up">디비전 5</div>
@@ -31,19 +32,37 @@
       </section>
     </main>
 
-    <!-- scroll func checking -->
     <script>
-      const saTriggerMargin = 300;
+      // Scroll Animation (sa, 스크롤 애니메이션)
+      const saDefaultMargin = 300;
+      let saTriggerMargin = 0;
+      let saTriggerHeight = 0;
       const saElementList = document.querySelectorAll(".sa");
 
       const saFunc = function () {
         for (const element of saElementList) {
           if (!element.classList.contains("show")) {
-            if (
-              window.innerHeight >
-              element.getBoundingClientRect().top + saTriggerMargin
-            ) {
-              element.classList.add("show");
+            if (element.dataset.saMargin) {
+              saTriggerMargin = parseInt(element.dataset.saMargin);
+            } else {
+              saTriggerMargin = saDefaultMargin;
+            }
+
+            if (element.dataset.saTrigger) {
+              saTriggerHeight =
+                document
+                  .querySelector(element.dataset.saTrigger)
+                  .getBoundingClientRect().top + saTriggerMargin;
+            } else {
+              saTriggerHeight =
+                element.getBoundingClientRect().top + saTriggerMargin;
+            }
+
+            if (window.innerHeight > saTriggerHeight) {
+              let delay = element.dataset.saDelay ? element.dataset.saDelay : 0;
+              setTimeout(function () {
+                element.classList.add("show");
+              }, delay);
             }
           }
         }
