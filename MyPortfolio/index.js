@@ -2,7 +2,6 @@ console.clear();
 
 //get canvas element dom
 const canvas = document.getElementById("scene");
-let animationPause = false;
 canvas.width = canvas.clientWidth;
 canvas.height = canvas.clientHeight;
 
@@ -19,7 +18,7 @@ let width = canvas.offsetWidth;
 let height = canvas.offsetHeight;
 const dots = [];
 
-const DOTS_AMOUNT = 2500;
+const DOTS_AMOUNT = 1000;
 const DOT_RADIUS = 10;
 let PROJECTION_CENTER_X = width / 2;
 let PROJECTION_CENTER_Y = height / 2;
@@ -30,20 +29,24 @@ class Dot {
     this.x = (Math.random() - 0.5) * width;
     this.y = (Math.random() - 0.5) * height;
     this.z = Math.random() * width;
-    this.radius = 10;
+    this.radius = 5;
 
     this.xProjected = 0;
     this.yProjected = 0;
     this.scaleProjected = 0;
 
     TweenMax.to(this, Math.random() * 10 + 15, {
+      // x: width / 1000,
+      // y: height / 2,
       z: width,
       repeat: -1,
       yoyo: true,
       ease: Power2.easeOut,
       yoyoEase: true,
-      delay: Math.random() + -25,
-      paused: animationPause,
+      delay: Math.random() * -25,
+      // onComplete: function () {
+      //   window.scrollTo(0, height);
+      // },
     });
   }
 
@@ -56,6 +59,7 @@ class Dot {
   draw() {
     this.project();
     ctx.globalAlpha = Math.abs(1 - this.z / width);
+    ctx.fillStyle = "#fff";
     ctx.fillRect(
       this.xProjected - this.radius,
       this.yProjected - this.radius,
@@ -125,10 +129,3 @@ function onResize() {
 createDots();
 
 window.requestAnimationFrame(render);
-
-function DotsPause() {
-  //   TweenMax.pause();
-  dots.forEach((cur) => delete cur._gsTweenID);
-}
-
-document.getElementById("button").addEventListener("click", () => DotsPause());
