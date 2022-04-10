@@ -1,0 +1,48 @@
+{
+  "expo": {
+    "name": "yonsang",
+    "slug": "yonsei",
+    "scheme": "yonsang",
+    "version": "1.0.3",
+    "orientation": "portrait",
+    "icon": "./assets/logo.png",
+    "updates": {
+      "fallbackToCacheTimeout": 0
+    },
+    "assetBundlePatterns": ["**/*"],
+    "notification": {
+      "icon": "./assets/logo.png",
+      "color": "#FFFFFF"
+    },
+    "ios": {
+      "supportsTablet": true,
+      "bundleIdentifier": "dev.toktokhan.yonsang",
+      "buildNumber": "1.1.1",
+      "icon": "./assets/logo.png",
+      "config": {
+        "usesNonExemptEncryption": false
+      },
+      "infoPlist": {
+        "NSCameraUsageDescription": "연세 상경/경영 대학 동창회 앱은 게시글 혹은 프로필 사진 등록을 위해 디바이스 갤러리와 카메라에 접근할 수 있는 권한이 필요합니다."
+      }
+    },
+    "android": {
+      "versionCode": 10,
+      "useNextNotificationsApi": true,
+      "adaptiveIcon": {
+        "foregroundImage": "./assets/logo.png",
+        "backgroundColor": "#FFFFFF"
+      },
+      "googleServicesFile": "./google-services.json",
+      "package": "dev.toktokhan.yonsang",
+      "permissions": [
+        "READ_EXTERNAL_STORAGE",
+        "WRITE_EXTERNAL_STORAGE",
+        "NOTIFICATIONS"
+      ]
+    },
+    "web": {
+      "favicon": "./assets/logo.png"
+    }
+  }
+}
